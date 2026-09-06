@@ -1,0 +1,1 @@
+We reviewed the match event dataset and confirmed the Barcelona pass schema, then built and verified a pass-accuracy analysis showing 917 passes with 820 successful and an overall accuracy of 89.42%. The project now includes a working analysis script and a regression test to ensure the Barcelona pass metrics remain accurate as the project evolves. 

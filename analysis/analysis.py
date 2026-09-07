@@ -1,72 +1,35 @@
-import json
+import re
+import sys
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any
+
+import pandas as pd
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from data_layer.player_stats import load_player_stats
 
 
-def _is_successful_pass(event: Dict[str, Any]) -> bool:
-    """Return True for successful passes in the Opta-style match event JSON."""
-    outcome = event.get("pass", {}).get("outcome")
-    if not isinstance(outcome, dict):
-        return True
-
-    outcome_name = outcome.get("name")
-    if outcome_name is None:
-        return True
-
-    successful_outcomes = {"Complete", "Completed", "Successful"}
-    return outcome_name in successful_outcomes
-
-
-def calculate_pass_accuracy(file_path: str | Path, team_name: str) -> Dict[str, Any]:
-    """Calculate total, successful, unsuccessful and accuracy for a team."""
-    with open(file_path, "r", encoding="utf-8") as source:
-        data = json.load(source)
-
-    team_passes: List[Dict[str, Any]] = []
-    for event in data:
-        if not isinstance(event, dict):
-            continue
-        if event.get("type", {}).get("name") != "Pass":
-            continue
-        if event.get("team", {}).get("name") != team_name:
-            continue
-        team_passes.append(event)
-
-    total_passes = len(team_passes)
-    successful_passes = sum(1 for event in team_passes if _is_successful_pass(event))
-    unsuccessful_passes = total_passes - successful_passes
+def calculate_pass_accuracy(file_path: str | Path, team_name: str) -> dict[str, Any]:
+    """Calculate team passing statistics from the standardized player DataFrame."""
+    dataframe = load_player_stats(file_path)
+    team_stats = dataframe.loc[dataframe["team"].eq(team_name)]
+    total_passes = int(team_stats["passes_attempted"].sum())
+    successful_passes = int(team_stats["passes_completed"].sum())
+    unsuccessful_passes = int(team_stats["miss_passes"].sum())
     pass_accuracy_pct = (successful_passes / total_passes * 100) if total_passes else 0.0
 
-    player_stats: Dict[str, Dict[str, int]] = {}
-    for event in team_passes:
-        player_name = event.get("player", {}).get("name", "Unknown")
-        stats = player_stats.setdefault(
-            player_name,
-            {"total": 0, "successful": 0, "unsuccessful": 0},
-        )
-        stats["total"] += 1
-        if _is_successful_pass(event):
-            stats["successful"] += 1
-        else:
-            stats["unsuccessful"] += 1
-
-    player_accuracy = []
-    for player_name, stats in sorted(
-        player_stats.items(),
-        key=lambda item: item[1]["successful"],
-        reverse=True,
-    ):
-        total = stats["total"]
-        accuracy = (stats["successful"] / total * 100) if total else 0.0
-        player_accuracy.append(
-            {
-                "player": player_name,
-                "total_passes": total,
-                "successful_passes": stats["successful"],
-                "unsuccessful_passes": stats["unsuccessful"],
-                "pass_accuracy_pct": round(accuracy, 2),
-            }
-        )
+    player_accuracy = team_stats[
+        ["player_name", "passes_attempted", "passes_completed", "miss_passes", "pass_accuracy_pct"]
+    ].rename(
+        columns={
+            "player_name": "player",
+            "passes_attempted": "total_passes",
+            "passes_completed": "successful_passes",
+            "miss_passes": "unsuccessful_passes",
+        }
+    ).sort_values("successful_passes", ascending=False).to_dict("records")
 
     return {
         "team": team_name,
@@ -78,8 +41,67 @@ def calculate_pass_accuracy(file_path: str | Path, team_name: str) -> Dict[str, 
     }
 
 
+_METRIC_ALIASES = {
+    "passes": "passes_attempted",
+    "shots": "shots",
+    "shots_on_target": "shots_on_target",
+    "tackles": "tackles",
+    "tackles_won": "tackles_won",
+    "interceptions": "interceptions",
+    "interceptions_won": "interceptions_won",
+    "touches": "touches",
+    "carry_distance": "carry_distance",
+}
+
+
+def _slug(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "_", value.lower()).strip("_")
+
+
+def get_player_metric(
+    dataframe: pd.DataFrame, player_name: str, event_type: str
+) -> int | float:
+    """Return one metric for a player from the standardized player DataFrame."""
+    matching = dataframe.loc[dataframe["player_name"].eq(player_name)]
+    if matching.empty:
+        raise KeyError(f"Player not found: {player_name}")
+
+    metric = _METRIC_ALIASES.get(event_type.lower(), event_type)
+    if metric not in dataframe.columns:
+        event_column = f"event_{_slug(event_type)}_count"
+        metric = event_column if event_column in dataframe.columns else metric
+    if metric not in dataframe.columns:
+        raise ValueError(f"Unknown player metric: {event_type}")
+    value = matching.iloc[0][metric]
+    return value.item() if hasattr(value, "item") else value
+
+
+def get_player_analysis(dataframe: pd.DataFrame, player_name: str) -> dict[str, Any]:
+    """Return the stable player-analysis schema for recommendations or UI."""
+    matching = dataframe.loc[dataframe["player_name"].eq(player_name)]
+    if matching.empty:
+        raise KeyError(f"Player not found: {player_name}")
+    row = matching.iloc[0]
+    return {
+        "player": row["player_name"],
+        "team": row["team"],
+        "position": row["position"],
+        "pass_accuracy": float(
+            round(row["passes_completed"] / row["passes_attempted"], 4)
+        ) if row["passes_attempted"] else 0.0,
+        "shots": int(row["shots"]),
+        "shots_on_target": int(row["shots_on_target"]),
+        "shots_on_target_pct": float(row["shots_on_target_pct"]),
+        "tackles_won": int(row["tackles_won"]),
+        "interceptions_won": int(row["interceptions_won"]),
+        "defensive_actions_successful": int(row["defensive_actions_successful"]),
+        "touches": int(row["touches"]),
+        "carry_distance": float(row["carry_distance"]),
+    }
+
+
 if __name__ == "__main__":
-    result = calculate_pass_accuracy("data_layer/15946.json", "Barcelona")
+    result = calculate_pass_accuracy("data_layer/15946.json", "Deportivo Alavés")
     print(f"Team: {result['team']}")
     print(f"Total passes: {result['total_passes']}")
     print(f"Successful passes: {result['successful_passes']}")

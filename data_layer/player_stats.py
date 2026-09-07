@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import re
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -52,6 +53,14 @@ def _successful_duel(event: dict[str, Any]) -> bool:
 def _add_event_count(stats: dict[str, Any], event_type: str) -> None:
     column = f"event_{_slug(event_type)}_count"
     stats[column] = stats.get(column, 0) + 1
+
+
+def _distance(start: Any, end: Any) -> float:
+    if not isinstance(start, list) or not isinstance(end, list):
+        return 0.0
+    if len(start) < 2 or len(end) < 2:
+        return 0.0
+    return math.hypot(end[0] - start[0], end[1] - start[1])
 
 
 def load_player_stats(file_path: str | Path) -> pd.DataFrame:
@@ -106,6 +115,7 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
                 "shots_on_target": 0,
                 "shots_off_target": 0,
                 "shots_blocked": 0,
+                "shots_on_target_pct": 0.0,
                 "expected_goals": 0.0,
                 "dribbles_attempted": 0,
                 "dribbles_completed": 0,
@@ -113,13 +123,18 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
                 "duels_won": 0,
                 "duels_lost": 0,
                 "tackles": 0,
+                "tackles_won": 0,
                 "interceptions": 0,
+                "interceptions_won": 0,
+                "defensive_actions_successful": 0,
                 "clearances": 0,
                 "blocks": 0,
                 "ball_recoveries": 0,
                 "pressures": 0,
                 "ball_receipts": 0,
                 "carries": 0,
+                "carry_distance": 0.0,
+                "touches": 0,
                 "dispossessed": 0,
                 "miscontrols": 0,
                 "fouls_committed": 0,
@@ -180,6 +195,19 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
             if body_part:
                 body_parts[player_id][body_part] += 1
 
+        if event.get("location") is not None and event_type in {
+            "Ball Receipt*",
+            "Carry",
+            "Pass",
+            "Shot",
+            "Dribble",
+            "Duel",
+            "Ball Recovery",
+            "Dispossessed",
+            "Miscontrol",
+        }:
+            stats["touches"] += 1
+
         if event_type == "Pass":
             stats["passes_attempted"] += 1
             if _successful_pass(event):
@@ -217,6 +245,10 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
             stats["tackles"] += 1
         elif event_type == "Interception":
             stats["interceptions"] += 1
+            outcome = _name(event.get("interception", {}).get("outcome"))
+            if outcome not in {"Lost Out", "Lost"}:
+                stats["interceptions_won"] += 1
+                stats["defensive_actions_successful"] += 1
         elif event_type == "Clearance":
             stats["clearances"] += 1
         elif event_type == "Block":
@@ -229,6 +261,11 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
             stats["ball_receipts"] += 1
         elif event_type == "Carry":
             stats["carries"] += 1
+            carry = event.get("carry", {})
+            if isinstance(carry, dict):
+                stats["carry_distance"] += _distance(
+                    event.get("location"), carry.get("end_location")
+                )
         elif event_type == "Dispossessed":
             stats["dispossessed"] += 1
         elif event_type == "Miscontrol":
@@ -260,6 +297,9 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
         stats["pass_accuracy_pct"] = round(
             stats["passes_completed"] / total_passes * 100, 2
         ) if total_passes else 0.0
+        stats["shots_on_target_pct"] = round(
+            stats["shots_on_target"] / stats["shots"], 4
+        ) if stats["shots"] else 0.0
         parts = body_parts[player_id]
         stats["foot_played_with"] = parts.most_common(1)[0][0] if parts else None
         stats["left_foot_actions"] = parts["Left Foot"]
@@ -269,6 +309,7 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
             parts[name] for name in ("Left Foot", "Right Foot", "Head")
         )
         stats["expected_goals"] = round(stats["expected_goals"], 4)
+        stats["carry_distance"] = round(stats["carry_distance"], 2)
 
     dataframe = pd.DataFrame(players.values())
     if dataframe.empty:

@@ -101,7 +101,7 @@ def get_player_analysis(dataframe: pd.DataFrame, player_name: str) -> dict[str, 
 
 
 if __name__ == "__main__":
-    result = calculate_pass_accuracy("data_layer/15946.json", "Deportivo Alavés")
+    result = calculate_pass_accuracy("data_layer/15946.json", "Barcelona")
     print(f"Team: {result['team']}")
     print(f"Total passes: {result['total_passes']}")
     print(f"Successful passes: {result['successful_passes']}")

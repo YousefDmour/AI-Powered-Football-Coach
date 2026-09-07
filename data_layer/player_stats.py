@@ -46,8 +46,8 @@ def _successful_dribble(event: dict[str, Any]) -> bool:
 
 
 def _successful_duel(event: dict[str, Any]) -> bool:
-    duel_type = _name(event.get("duel", {}).get("type"))
-    return duel_type not in {"Aerial Lost", "Tackle", "Challenge Lost"}
+    outcome = _name(event.get("duel", {}).get("outcome"))
+    return outcome in {"Won", "Success In Play", "Success"}
 
 
 def _add_event_count(stats: dict[str, Any], event_type: str) -> None:
@@ -220,6 +220,7 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
             outcome = _name(shot.get("outcome")) if isinstance(shot, dict) else None
             if outcome == "Goal":
                 stats["goals"] += 1
+                stats["shots_on_target"] += 1
                 key_pass_id = shot.get("key_pass_id") if isinstance(shot, dict) else None
                 assister_id = event_players.get(key_pass_id)
                 if assister_id in players:
@@ -237,12 +238,16 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
             stats["dribbles_completed"] += _successful_dribble(event)
         elif event_type == "Duel":
             stats["duels"] += 1
-            if _successful_duel(event):
+            won = _successful_duel(event)
+            if won:
                 stats["duels_won"] += 1
             else:
                 stats["duels_lost"] += 1
-        elif event_type == "Tackle":
-            stats["tackles"] += 1
+            duel_type = _name(event.get("duel", {}).get("type"))
+            if duel_type == "Tackle":
+                stats["tackles"] += 1
+                if won:
+                    stats["tackles_won"] += 1
         elif event_type == "Interception":
             stats["interceptions"] += 1
             outcome = _name(event.get("interception", {}).get("outcome"))

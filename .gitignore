@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local machine and environment files
+.venv/
+venv/
+env/
+.env
+
+# Downloaded model weights
+*.pt
+
+# Generated vision outputs
+vision/output.jpg
+vision/tracked.mp4
+vision/tracked_*.mp4
+vision/tracks.csv
+vision/tracks_*.csv
+vision/experiments.csv
+
+# Local media used for experiments
+vision/sample.mp4

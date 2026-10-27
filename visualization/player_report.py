@@ -40,7 +40,7 @@ def print_player_report(dataframe: Any, team_name: str) -> None:
 	print("=" * 72)
 	for row in build_player_report(dataframe, team_name):
 		metrics = row["metrics"]
-		print(f"\nاللاعب: {row['player']} | Position: {metrics['position']}")
+		print(f"\Player: {row['player']} | Position: {metrics['position']}")
 		print(
 			"Metrics: "
 			f"Pass Accuracy {metrics['pass_accuracy']:.1%}، "

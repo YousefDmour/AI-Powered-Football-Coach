@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>خط التماس — متابعة المباراة</title>
+  <link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/" aria-label="خط التماس، الرئيسية"><span class="brand-icon">↗</span><span>خط التماس<small>FOOTBALL INTELLIGENCE</small></span></a>
+  <div class="workspace">مساحة المدرب</div>
+  <div class="nav-active"><span>◉</span> متابعة المباراة</div>
+  <div class="side-note"><span class="dot"></span> تجربة المشروع<p>من أحداث المباراة<br>إلى قرارات أوضح.</p></div>
+  <div class="side-footer">AI Football Coach<br><span>مشروع تخرج · النسخة التجريبية</span></div>
+</aside>
+<main>
+  <header><div><div class="eyebrow">MATCH CENTER / مركز المباراة</div><h1>اقرأ المباراة. اتخذ القرار.</h1><p>الإحصائيات والتوصيات في مكان واحد، مع تقدّم أحداث المباراة.</p></div><span class="local-badge"><span class="dot"></span> لوحة محلية</span></header>
+  <div class="notice"><span class="notice-label">محاكاة ببيانات مسجّلة</span><span>هذه إعادة تشغيل لأحداث مباراة، وليست بثًا مباشرًا أو تحليلًا للفيديو.</span></div>
+  <div id="error" class="error" role="alert" hidden></div>
+  <section class="match-card" aria-label="متابعة نتيجة المباراة">
+    <div class="match-top"><span>مباراة تجريبية <span class="muted">/ بيانات الأحداث</span></span><span id="status" class="status">جارٍ الاتصال</span></div>
+    <div class="scoreboard"><div class="team"><span class="crest home">01</span><h2 id="home-name">الفريق الأول</h2><span>الفريق الأول</span></div><div class="score-center"><div class="score" dir="ltr"><span id="home-score">0</span><span class="score-separator">:</span><span id="away-score">0</span></div><div id="clock" class="clock" dir="ltr">00:00</div><small id="period">بانتظار البداية</small></div><div class="team"><span class="crest away">02</span><h2 id="away-name">الفريق الثاني</h2><span>الفريق الثاني</span></div></div>
+    <div class="replay-progress"><div><span>الأحداث المستلمة</span><span id="events" dir="ltr">0 / —</span></div><progress id="progress" value="0" max="1" aria-label="تقدم معالجة أحداث المباراة"></progress></div>
+    <div class="controls"><div class="playback-buttons"><button id="play" class="primary" disabled>▶ بدء المحاكاة</button><button id="reset" class="secondary" disabled>↺ إعادة من البداية</button></div><label class="speed-label" for="speed">سرعة المحاكاة <select id="speed"><option value="1">1×</option><option value="30">30×</option><option value="60" selected>60×</option><option value="120">120×</option><option value="300">300×</option><option value="600">600×</option></select></label></div>
+  </section>
+  <div class="content-grid">
+    <section class="panel stats"><div class="section-heading"><div><div class="eyebrow">THE NUMBERS</div><h2>صورة المباراة</h2></div><span class="subtle-chip">إجمالي حتى الآن</span></div><div class="legend"><span><i class="swatch home-color"></i><span id="legend-home">الفريق الأول</span></span><span><i class="swatch away-color"></i><span id="legend-away">الفريق الثاني</span></span></div><div id="stats"></div><p class="footnote">— تعني عدم وجود محاولات كافية لحساب النسبة. الاستحواذ غير محسوب في هذه النسخة.</p></section>
+    <section class="panel insights"><div class="section-heading"><div><div class="eyebrow">COACHING NOTES</div><h2>على رادار المدرب <span id="alert-count" class="count">0</span></h2></div></div><p class="panel-description">اقتراحات مبنية على آخر 10 دقائق؛ تُراجع مع المدرب.</p><div class="tabs" role="group" aria-label="فلترة التوصيات"><button id="new-tab" class="tab active" aria-pressed="true">الجديدة <span id="new-count">0</span></button><button id="history-tab" class="tab" aria-pressed="false">السابقة <span id="old-count">0</span></button></div><div id="alerts" class="alerts" aria-live="polite"></div><button id="mark-read" class="text-button" disabled>نقل الجديدة إلى السابقة ←</button><div class="rules-note">حدود تجريبية · حد أدنى للمحاولات · فاصل 5 دقائق للتنبيه نفسه</div></section>
+  </div>
+  <section class="panel players"><div class="section-heading"><div><div class="eyebrow">PLAYER SNAPSHOT</div><h2>اللاعبون بالأرقام</h2></div><a class="secondary download" href="/api/export" download>↓ تنزيل التحليل JSON</a></div><div class="table-wrap"><table><thead><tr><th>اللاعب</th><th>الفريق</th><th>التمريرات الناجحة</th><th>دقة التمرير</th><th>التسديدات</th><th>على المرمى</th></tr></thead><tbody id="players"><tr><td colspan="6">تظهر بيانات اللاعبين مع وصول أحداثهم.</td></tr></tbody></table></div></section>
+  <footer><span>خط التماس / AI Football Coach</span><span>توصيات بقواعد تجريبية، وليست قرارات تكتيكية مؤكدة.</span></footer>
+</main>
+</body></html>

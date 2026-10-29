@@ -1,20 +1,18 @@
-from analysis.analysis import calculate_pass_accuracy
-from visualization.player_report import main
+"""Run an offline report or simulated live event analysis with --live."""
+
+import sys
 
 
 if __name__ == "__main__":
-    # result = calculate_pass_accuracy("data_layer/15946.json", "Barcelona")
-    # print(f"Team: {result['team']}")
-    # print(f"Total passes: {result['total_passes']}")
-    # print(f"Successful passes: {result['successful_passes']}")
-    # print(f"Unsuccessful passes: {result['unsuccessful_passes']}")
-    # print(f"Pass accuracy: {result['pass_accuracy_pct']}%")
-    # print("Top players by pass accuracy:")
-    # for player in result["player_accuracy"][:5]:
-    #     print(
-    #         f"- {player['player']}: {player['pass_accuracy_pct']}% "
-    #         f"({player['successful_passes']}/{player['total_passes']})"
-    #         )
+    if "--dashboard" in sys.argv[1:]:
+        from live.dashboard import main
 
+        main([argument for argument in sys.argv[1:] if argument != "--dashboard"])
+    elif "--live" in sys.argv[1:]:
+        from live.cli import main
 
-    main()
+        main([argument for argument in sys.argv[1:] if argument != "--live"])
+    else:
+        from visualization.player_report import main
+
+        main()

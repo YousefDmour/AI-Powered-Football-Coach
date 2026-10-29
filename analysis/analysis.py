@@ -9,6 +9,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from data_layer.player_stats import load_player_stats
+from project_paths import EVENTS_FILE
 
 
 def calculate_pass_accuracy(file_path: str | Path, team_name: str) -> dict[str, Any]:
@@ -101,7 +102,7 @@ def get_player_analysis(dataframe: pd.DataFrame, player_name: str) -> dict[str, 
 
 
 if __name__ == "__main__":
-    result = calculate_pass_accuracy("data_layer/15946.json", "Barcelona")
+    result = calculate_pass_accuracy(EVENTS_FILE, "Barcelona")
     print(f"Team: {result['team']}")
     print(f"Total passes: {result['total_passes']}")
     print(f"Successful passes: {result['successful_passes']}")
@@ -113,4 +114,3 @@ if __name__ == "__main__":
             f"- {player['player']}: {player['pass_accuracy_pct']}% "
             f"({player['successful_passes']}/{player['total_passes']})"
         )
-

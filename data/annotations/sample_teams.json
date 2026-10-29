@@ -1,0 +1,448 @@
+{
+  "source": "data/videos/sample.mp4",
+  "source_fps": 30,
+  "reviewer": "Assistant visual review of selected original frames; approximate boxes. Not an independent human benchmark.",
+  "scope": "Small curated sample; uncertain identities omitted. Used for prototype calibration and comparison, not held-out accuracy.",
+  "frames": {
+    "0": [
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1410,
+          612,
+          1448,
+          700
+        ]
+      },
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          858,
+          740,
+          900,
+          843
+        ]
+      },
+      {
+        "person_id": "left_dark",
+        "team": "team_a",
+        "bbox": [
+          414,
+          438,
+          456,
+          510
+        ]
+      },
+      {
+        "person_id": "white9",
+        "team": "team_b",
+        "bbox": [
+          618,
+          369,
+          656,
+          443
+        ]
+      },
+      {
+        "person_id": "dark17",
+        "team": "team_a",
+        "bbox": [
+          903,
+          415,
+          944,
+          484
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          1062,
+          432,
+          1105,
+          505
+        ]
+      },
+      {
+        "person_id": "referee",
+        "team": "official_candidate",
+        "bbox": [
+          1284,
+          372,
+          1321,
+          441
+        ]
+      },
+      {
+        "person_id": "assistant",
+        "team": "official_candidate",
+        "bbox": [
+          831,
+          175,
+          856,
+          232
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "other_kit",
+        "bbox": [
+          225,
+          337,
+          264,
+          408
+        ]
+      }
+    ],
+    "60": [
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1088,
+          582,
+          1137,
+          673
+        ]
+      },
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          592,
+          641,
+          628,
+          741
+        ]
+      },
+      {
+        "person_id": "left_dark",
+        "team": "team_a",
+        "bbox": [
+          320,
+          420,
+          355,
+          498
+        ]
+      },
+      {
+        "person_id": "white9",
+        "team": "team_b",
+        "bbox": [
+          420,
+          361,
+          449,
+          436
+        ]
+      },
+      {
+        "person_id": "dark17",
+        "team": "team_a",
+        "bbox": [
+          734,
+          370,
+          758,
+          440
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          919,
+          407,
+          962,
+          480
+        ]
+      },
+      {
+        "person_id": "referee",
+        "team": "official_candidate",
+        "bbox": [
+          927,
+          374,
+          957,
+          429
+        ]
+      },
+      {
+        "person_id": "assistant",
+        "team": "official_candidate",
+        "bbox": [
+          496,
+          184,
+          532,
+          236
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          1574,
+          442,
+          1610,
+          516
+        ]
+      }
+    ],
+    "120": [
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1200,
+          588,
+          1243,
+          684
+        ]
+      },
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          599,
+          592,
+          640,
+          689
+        ]
+      },
+      {
+        "person_id": "left_dark",
+        "team": "team_a",
+        "bbox": [
+          512,
+          420,
+          556,
+          502
+        ]
+      },
+      {
+        "person_id": "white9",
+        "team": "team_b",
+        "bbox": [
+          518,
+          371,
+          548,
+          435
+        ]
+      },
+      {
+        "person_id": "dark17",
+        "team": "team_a",
+        "bbox": [
+          759,
+          342,
+          791,
+          409
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          924,
+          369,
+          969,
+          435
+        ]
+      },
+      {
+        "person_id": "referee",
+        "team": "official_candidate",
+        "bbox": [
+          868,
+          385,
+          900,
+          463
+        ]
+      },
+      {
+        "person_id": "assistant",
+        "team": "official_candidate",
+        "bbox": [
+          663,
+          198,
+          689,
+          256
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          1080,
+          452,
+          1112,
+          536
+        ]
+      }
+    ],
+    "180": [
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1130,
+          589,
+          1177,
+          675
+        ]
+      },
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          506,
+          592,
+          563,
+          679
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          479,
+          408,
+          526,
+          482
+        ]
+      },
+      {
+        "person_id": "dark17",
+        "team": "team_a",
+        "bbox": [
+          682,
+          337,
+          724,
+          405
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          748,
+          360,
+          783,
+          435
+        ]
+      },
+      {
+        "person_id": "referee",
+        "team": "official_candidate",
+        "bbox": [
+          807,
+          389,
+          852,
+          461
+        ]
+      },
+      {
+        "person_id": "assistant",
+        "team": "official_candidate",
+        "bbox": [
+          579,
+          206,
+          606,
+          266
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          948,
+          442,
+          995,
+          523
+        ]
+      }
+    ],
+    "239": [
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          680,
+          578,
+          728,
+          667
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          327,
+          466,
+          385,
+          550
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          642,
+          489,
+          717,
+          571
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          1073,
+          433,
+          1126,
+          512
+        ]
+      },
+      {
+        "person_id": "referee",
+        "team": "official_candidate",
+        "bbox": [
+          218,
+          415,
+          260,
+          490
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          829,
+          397,
+          873,
+          454
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_a",
+        "bbox": [
+          481,
+          246,
+          516,
+          308
+        ]
+      },
+      {
+        "person_id": null,
+        "team": "team_b",
+        "bbox": [
+          708,
+          293,
+          747,
+          351
+        ]
+      }
+    ]
+  }
+}

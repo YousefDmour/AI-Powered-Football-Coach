@@ -1,5 +1,6 @@
 import argparse
 import csv
+import sys
 import time
 from pathlib import Path
 
@@ -8,6 +9,12 @@ import pandas as pd
 import yaml
 from ultralytics import YOLO
 from ultralytics.utils import ROOT
+
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from project_paths import DEFAULT_MODEL, SAMPLE_VIDEO, VISION_OUTPUT_DIR
 
 
 def build_tracker_config(tracker: str, track_buffer: int | None, out_dir: Path) -> str:
@@ -27,11 +34,11 @@ def build_tracker_config(tracker: str, track_buffer: int | None, out_dir: Path) 
 
 def track_video(
     video_path,
-    out_dir="vision",
+    out_dir=VISION_OUTPUT_DIR,
     tag="baseline",
-    model_name="yolov8n.pt",
-    tracker="botsort",         
-    track_buffer=None,          
+    model_name=str(DEFAULT_MODEL),
+    tracker="botsort",
+    track_buffer=None,
     imgsz=960,
     conf=0.3,
     vid_stride=2,
@@ -86,13 +93,21 @@ def track_video(
             for (x1, y1, x2, y2), tid in zip(boxes, ids):
                 x1, y1, x2, y2 = map(int, (x1, y1, x2, y2))
                 rows.append(
-                    {"frame": frame_idx, "track_id": tid,
-                     "x1": x1, "y1": y1, "x2": x2, "y2": y2}
+                    {
+                        "frame": frame_idx,
+                        "track_id": tid,
+                        "x1": x1,
+                        "y1": y1,
+                        "x2": x2,
+                        "y2": y2,
+                    }
                 )
                 if writer is not None:
                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-                    cv2.putText(frame, str(tid), (x1, max(y1 - 5, 10)),
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
+                    cv2.putText(
+                        frame, str(tid), (x1, max(y1 - 5, 10)),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2,
+                    )
         if writer is not None:
             writer.write(frame)
     if writer is not None:
@@ -104,9 +119,14 @@ def track_video(
     summary = summarize(df, processed)
     summary.update(
         {
-            "tag": tag, "model": model_name, "tracker": tracker,
-            "track_buffer": track_buffer, "imgsz": imgsz, "conf": conf,
-            "vid_stride": vid_stride, "frames": processed,
+            "tag": tag,
+            "model": model_name,
+            "tracker": tracker,
+            "track_buffer": track_buffer,
+            "imgsz": imgsz,
+            "conf": conf,
+            "vid_stride": vid_stride,
+            "frames": processed,
             "seconds": round(time.time() - start, 1),
         }
     )
@@ -116,8 +136,14 @@ def track_video(
 
 def summarize(df: pd.DataFrame, n_frames: int) -> dict:
     if df.empty:
-        return {"unique_ids": 0, "ids_ge_25": 0, "ids_ge_100": 0,
-                "median_len": 0, "max_len": 0, "det_per_frame": 0}
+        return {
+            "unique_ids": 0,
+            "ids_ge_25": 0,
+            "ids_ge_100": 0,
+            "median_len": 0,
+            "max_len": 0,
+            "det_per_frame": 0,
+        }
     lengths = df.groupby("track_id").size()
     per_frame = df.groupby("frame").size().reindex(range(n_frames), fill_value=0)
     return {
@@ -140,10 +166,10 @@ def log_experiment(path: Path, summary: dict) -> None:
 
 
 def parse_args():
-    p = argparse.ArgumentParser(description="Track players in a football clip")
-    p.add_argument("--video", default="vision/sample.mp4")
+    p = argparse.ArgumentParser(description="Track people in a football clip")
+    p.add_argument("--video", default=str(SAMPLE_VIDEO))
     p.add_argument("--tag", default="baseline", help="name for this experiment")
-    p.add_argument("--model", default="yolov8n.pt")
+    p.add_argument("--model", default=str(DEFAULT_MODEL))
     p.add_argument("--tracker", default="botsort", choices=["botsort", "bytetrack"])
     p.add_argument("--track-buffer", type=int, default=None)
     p.add_argument("--imgsz", type=int, default=960)

@@ -323,5 +323,12 @@ def load_player_stats(file_path: str | Path) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    df = load_player_stats(Path(__file__).parent / "15946.json")
+    import sys
+
+    if __package__ in {None, ""}:
+        sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+    from project_paths import EVENTS_FILE
+
+    df = load_player_stats(EVENTS_FILE)
     print(df)

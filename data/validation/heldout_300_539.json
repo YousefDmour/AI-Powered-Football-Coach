@@ -1,0 +1,35 @@
+{
+  "window": {
+    "source": "data/videos/sample.mp4",
+    "start_frame": 300,
+    "end_frame_inclusive": 539,
+    "frame_count": 240,
+    "fps": 30
+  },
+  "parameters": {
+    "person_model": "yolov8m.pt",
+    "person_imgsz": 1280,
+    "person_conf": 0.2,
+    "buffer": 90,
+    "ball_imgsz": 1280,
+    "ball_conf": 0.05,
+    "search": "full",
+    "ball_center_tolerance": 20
+  },
+  "policy": "Frozen before viewing new-window predictions. No threshold tuning on this window. Same-video generalization check, not an independent match benchmark.",
+  "sha256": {
+    "vision/track_ball.py": "cc7e304b62e4610b5048639b9868b64369e449df3cd350f36eb21ccbfb9cebe4",
+    "vision/ball_tracking.py": "e43af1ca50fcf648b2e6f3d9302eba52512d9c18492d760b789d8d67ab374349",
+    "vision/team_tracking.py": "05db5db28419a0082acf6bcd9b584225d7f8fc462260369e6307318deedcd3ba",
+    "vision/team_colors.py": "8301c363af00135e44f8654628d0832ce42a26efd14d60c4f3d06b013c1e2f9e",
+    "vision/evaluate_ball.py": "9c72fad77a8ceb9c7faf6cf76fa27cfd5773723c6fd27a0b631071f6ce8a750f",
+    "vision/evaluate_tracking.py": "322cda1ebe8a6bc35a63ef43370113a1b2d6359f5427c3fb581d349f39007787",
+    "vision/validation.py": "b091d1e8487c9e8b049621a53beee0ff25b403776cc5a13df78dd5fe559eb5c6",
+    "models/yolov8m.pt": "5d4a90cdc7a21786cc59cd19778e9eafff836df9e2da32524737c7ee6efe4fe5",
+    "data/videos/sample.mp4": "e6dd06a48b72b2ec7bef24c83a7c68023046ee3adea0a0da664a7e4aa8a7b5fd"
+  },
+  "annotation_sha256": {
+    "data\\annotations\\heldout_ball_300_539.json": "63dfda147b0439d0d219aadb5928e834944821c266f0b5fca805bba0311d9601",
+    "data\\annotations\\heldout_players_300_539.json": "0cbfb39fb74c925b25d635d27271e37ca5fcb1b6c06deaf9429b85586f159cee"
+  }
+}

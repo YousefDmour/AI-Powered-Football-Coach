@@ -1,0 +1,6 @@
+-r requirements.txt
+numpy
+opencv-python
+ultralytics
+PyYAML
+lap

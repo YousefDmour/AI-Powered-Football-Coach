@@ -1,0 +1,81 @@
+{
+  "source": "data/videos/sample.mp4",
+  "reviewer": "Assistant visual review of original source frames. Approximate centers; not an independent human benchmark.",
+  "notes": "Two frames have no confidently identifiable ball and are marked uncertain, not scored as true negatives. Curated calibration sample, not a held-out test.",
+  "frames": [
+    {
+      "source_frame": 0,
+      "visibility": "visible",
+      "center": [
+        1174,
+        275
+      ]
+    },
+    {
+      "source_frame": 15,
+      "visibility": "visible",
+      "center": [
+        1274,
+        330
+      ]
+    },
+    {
+      "source_frame": 30,
+      "visibility": "visible",
+      "center": [
+        1301,
+        358
+      ]
+    },
+    {
+      "source_frame": 60,
+      "visibility": "visible",
+      "center": [
+        1275,
+        389
+      ]
+    },
+    {
+      "source_frame": 90,
+      "visibility": "uncertain",
+      "center": null
+    },
+    {
+      "source_frame": 120,
+      "visibility": "uncertain",
+      "center": null
+    },
+    {
+      "source_frame": 150,
+      "visibility": "visible",
+      "center": [
+        1412,
+        386
+      ]
+    },
+    {
+      "source_frame": 180,
+      "visibility": "visible",
+      "center": [
+        1412,
+        384
+      ]
+    },
+    {
+      "source_frame": 210,
+      "visibility": "visible",
+      "center": [
+        1435,
+        463
+      ]
+    },
+    {
+      "source_frame": 239,
+      "visibility": "visible",
+      "center": [
+        1154,
+        488
+      ]
+    }
+  ]
+}

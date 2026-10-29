@@ -1,6 +1,14 @@
+import sys
 from pathlib import Path
+
 import cv2
 from ultralytics import YOLO
+
+
+if __package__ in {None, ""}:
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from project_paths import DEFAULT_MODEL, SAMPLE_VIDEO, VISION_OUTPUT_DIR
 
 
 def extract_frame(video_path, frame_index=0):
@@ -13,7 +21,7 @@ def extract_frame(video_path, frame_index=0):
     return frame
 
 
-def detect_players(frame, model_name="yolov8n.pt", conf=0.3, imgsz=1280):
+def detect_players(frame, model_name=str(DEFAULT_MODEL), conf=0.3, imgsz=1280):
     model = YOLO(model_name)
     result = model(frame, conf=conf, imgsz=imgsz, classes=[0], verbose=False)[0]
     boxes = result.boxes.xyxy.cpu().numpy()
@@ -22,15 +30,18 @@ def detect_players(frame, model_name="yolov8n.pt", conf=0.3, imgsz=1280):
 
 
 def draw_detections(frame, detections, out_path):
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     for d in detections:
         x1, y1, x2, y2 = map(int, d["bbox"])
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
-    cv2.imwrite(str(out_path), frame)
+    if not cv2.imwrite(str(out_path), frame):
+        raise OSError(f"Could not save detections to {out_path}")
 
 
 if __name__ == "__main__":
-    video = Path("vision/sample.mp4")
+    video = SAMPLE_VIDEO
     frame = extract_frame(video, frame_index=100)
     detections = detect_players(frame)
     print(f"Detected {len(detections)} people")
-    draw_detections(frame, detections, "vision/output.jpg")
+    draw_detections(frame, detections, VISION_OUTPUT_DIR / "output.jpg")

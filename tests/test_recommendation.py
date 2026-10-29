@@ -1,9 +1,4 @@
-from pathlib import Path
-import sys
-
-if __package__ in {None, ""}:
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
+from project_paths import EVENTS_FILE
 from data_layer.player_stats import load_player_stats
 from recommendation.recommendation import recommendation_metrics, recommend
 
@@ -12,7 +7,7 @@ def test_recommend_flags_weak_player_and_team_metrics():
     tips = recommend(
         {
             "player": {
-				"position": "Center Forward",
+                "position": "Center Forward",
                 "pass_accuracy": 0.70,
                 "shots_on_target_pct": 0.20,
                 "dribbles_attempted": 6,
@@ -45,7 +40,7 @@ def test_shooting_recommendation_requires_forward_position():
 
 
 def test_recommendation_metrics_aggregates_match_dataframe():
-    dataframe = load_player_stats("data_layer/15946.json")
+    dataframe = load_player_stats(EVENTS_FILE)
 
     metrics = recommendation_metrics(dataframe, "Barcelona")
 

@@ -1,0 +1,266 @@
+{
+  "source": "data/videos/sample.mp4",
+  "reviewer": "Assistant source-image review before inspecting prediction IDs. Anonymous trajectories inferred from visible kit numbers and appearance; independent human review required.",
+  "frames": {
+    "300": [
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          778,
+          675,
+          834,
+          802
+        ]
+      },
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          541,
+          568,
+          606,
+          685
+        ]
+      },
+      {
+        "person_id": "white19",
+        "team": "team_b",
+        "bbox": [
+          1545,
+          800,
+          1600,
+          942
+        ]
+      },
+      {
+        "person_id": "dark16",
+        "team": "team_a",
+        "bbox": [
+          1677,
+          608,
+          1745,
+          726
+        ]
+      },
+      {
+        "person_id": "dark2",
+        "team": "team_a",
+        "bbox": [
+          606,
+          538,
+          665,
+          660
+        ]
+      }
+    ],
+    "360": [
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          814,
+          649,
+          895,
+          752
+        ]
+      },
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          798,
+          582,
+          861,
+          688
+        ]
+      },
+      {
+        "person_id": "white19",
+        "team": "team_b",
+        "bbox": [
+          1432,
+          713,
+          1498,
+          834
+        ]
+      },
+      {
+        "person_id": "dark16",
+        "team": "team_a",
+        "bbox": [
+          1635,
+          511,
+          1684,
+          628
+        ]
+      },
+      {
+        "person_id": "dark2",
+        "team": "team_a",
+        "bbox": [
+          935,
+          558,
+          994,
+          661
+        ]
+      }
+    ],
+    "420": [
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          898,
+          645,
+          985,
+          757
+        ]
+      },
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1198,
+          608,
+          1244,
+          720
+        ]
+      },
+      {
+        "person_id": "white19",
+        "team": "team_b",
+        "bbox": [
+          1384,
+          665,
+          1444,
+          793
+        ]
+      },
+      {
+        "person_id": "dark16",
+        "team": "team_a",
+        "bbox": [
+          1662,
+          460,
+          1712,
+          591
+        ]
+      },
+      {
+        "person_id": "dark2",
+        "team": "team_a",
+        "bbox": [
+          958,
+          551,
+          1028,
+          655
+        ]
+      }
+    ],
+    "480": [
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          821,
+          656,
+          880,
+          781
+        ]
+      },
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1524,
+          609,
+          1585,
+          735
+        ]
+      },
+      {
+        "person_id": "white19",
+        "team": "team_b",
+        "bbox": [
+          1685,
+          716,
+          1736,
+          844
+        ]
+      },
+      {
+        "person_id": "dark16",
+        "team": "team_a",
+        "bbox": [
+          1328,
+          520,
+          1373,
+          624
+        ]
+      },
+      {
+        "person_id": "dark2",
+        "team": "team_a",
+        "bbox": [
+          937,
+          538,
+          1009,
+          614
+        ]
+      }
+    ],
+    "539": [
+      {
+        "person_id": "dark23",
+        "team": "team_a",
+        "bbox": [
+          637,
+          709,
+          698,
+          848
+        ]
+      },
+      {
+        "person_id": "white7",
+        "team": "team_b",
+        "bbox": [
+          1502,
+          682,
+          1585,
+          804
+        ]
+      },
+      {
+        "person_id": "white19",
+        "team": "team_b",
+        "bbox": [
+          1617,
+          800,
+          1687,
+          947
+        ]
+      },
+      {
+        "person_id": "dark16",
+        "team": "team_a",
+        "bbox": [
+          1363,
+          584,
+          1405,
+          706
+        ]
+      },
+      {
+        "person_id": "dark2",
+        "team": "team_a",
+        "bbox": [
+          918,
+          571,
+          965,
+          696
+        ]
+      }
+    ]
+  }
+}

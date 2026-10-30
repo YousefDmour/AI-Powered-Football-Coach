@@ -1,0 +1,270 @@
+{
+  "source": "data/videos/sample.mp4",
+  "source_start_frame": 300,
+  "reviewer": "Mixed provenance: user confirmed the nine miss-review frames; other labels retain assistant-only review.",
+  "notes": "User confirmed eight original miss-review labels and approved the proposed frame-330 center [1441, 511]. Only those nine labels have human confirmation. Original frozen annotations and results are preserved.",
+  "frames": [
+    {
+      "source_frame": 300,
+      "visibility": "visible",
+      "center": [
+        1324,
+        409
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 310,
+      "visibility": "visible",
+      "center": [
+        1366,
+        453
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 320,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 330,
+      "visibility": "visible",
+      "center": [
+        1441,
+        511
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed",
+      "previous_center": [
+        1439,
+        591
+      ],
+      "correction_provenance": "Assistant proposal explicitly confirmed by user in chat."
+    },
+    {
+      "source_frame": 340,
+      "visibility": "visible",
+      "center": [
+        1448,
+        516
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 350,
+      "visibility": "visible",
+      "center": [
+        1450,
+        520
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 360,
+      "visibility": "visible",
+      "center": [
+        1458,
+        519
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 370,
+      "visibility": "visible",
+      "center": [
+        1422,
+        510
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 380,
+      "visibility": "visible",
+      "center": [
+        1413,
+        502
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 384,
+      "visibility": "not_visible",
+      "center": null,
+      "case": "short_player_occlusion"
+    },
+    {
+      "source_frame": 385,
+      "visibility": "not_visible",
+      "center": null,
+      "case": "short_player_occlusion"
+    },
+    {
+      "source_frame": 386,
+      "visibility": "not_visible",
+      "center": null,
+      "case": "short_player_occlusion"
+    },
+    {
+      "source_frame": 387,
+      "visibility": "not_visible",
+      "center": null,
+      "case": "short_player_occlusion"
+    },
+    {
+      "source_frame": 388,
+      "visibility": "not_visible",
+      "center": null,
+      "case": "short_player_occlusion"
+    },
+    {
+      "source_frame": 390,
+      "visibility": "visible",
+      "center": [
+        1359,
+        450
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 400,
+      "visibility": "visible",
+      "center": [
+        1360,
+        432
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 410,
+      "visibility": "visible",
+      "center": [
+        1378,
+        421
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 420,
+      "visibility": "visible",
+      "center": [
+        1416,
+        408
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 430,
+      "visibility": "visible",
+      "center": [
+        1455,
+        396
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 440,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 450,
+      "visibility": "visible",
+      "center": [
+        1290,
+        324
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 460,
+      "visibility": "visible",
+      "center": [
+        1146,
+        328
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 470,
+      "visibility": "visible",
+      "center": [
+        1022,
+        398
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    },
+    {
+      "source_frame": 480,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 490,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 500,
+      "visibility": "visible",
+      "center": [
+        505,
+        515
+      ],
+      "case": "visible_center"
+    },
+    {
+      "source_frame": 510,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 520,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 530,
+      "visibility": "uncertain",
+      "center": null,
+      "case": "net_or_body_ambiguity"
+    },
+    {
+      "source_frame": 539,
+      "visibility": "visible",
+      "center": [
+        448,
+        586
+      ],
+      "case": "visible_center",
+      "review_status": "user_confirmed"
+    }
+  ],
+  "version": 2,
+  "supersedes": "data/annotations/heldout_ball_300_539.json",
+  "user_reviewed_frames": [
+    300,
+    330,
+    360,
+    370,
+    380,
+    390,
+    460,
+    470,
+    539
+  ],
+  "review_date": "2026-10-30"
+}

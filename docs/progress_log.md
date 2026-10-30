@@ -76,3 +76,20 @@ Validated the recommendation system and report with the bundled match data; all 
 - The predeclared 80% ball-recall gate failed (50% measured), so possession-candidate functionality was deferred. These are same-video assistant-reviewed results, not independent human/independent-match validation.
 - Added a repeatable report command verifying frozen hashes and output windows. Report: outputs/vision/validation_300_539/report.json; explanation: docs/validation_300_539.md.
 - Validation: all 32 tests passed; both 240-frame output videos decoded through their last frame; source frame/time offsets and empty unknown positions verified. Separate CPU timings: people 1.74 FPS, ball with cached people 1.65 FPS.
+
+## 2026-10-30 - Ball miss diagnostic review
+
+- Added a separate frozen-settings diagnostic command capturing pre-filter detections and first rejection reasons on the nine missed samples.
+- Replayed all 240 cached tracker frames; states/positions matched original output and all nine rerun survivor sets matched cached candidates.
+- Provisional findings: six samples had no raw candidate within 20 pixels of the current annotation at confidence >= .05; one was rejected near a person; one awaited confirmation; one fell below tracker confidence .06.
+- Generated an offline, self-contained Arabic review page with source/overlay crops, full source images, raw candidate details, local review notes and JSON export. Original annotations/scores remain unchanged and await user review.
+- Verification: 34 tests passed; JavaScript syntax checked separately. Page: outputs/vision/ball_miss_review/index.html; audit: diagnosis.json; method: docs/ball_miss_review.md.
+
+## 2026-10-30 - User-confirmed ball annotation correction
+
+- User confirmed eight original miss-review labels and explicitly approved the proposed frame-330 center [1441, 511], replacing [1439, 591].
+- Saved a separate version-two annotation file with per-frame human-review provenance; only nine of the 30 labels are user-confirmed.
+- Recomputed evaluation and diagnostic matching against unchanged predictions: 9/18 correct visible centers and nine misses, with unchanged failure categories.
+- Frame 330 remains a miss because no output position was emitted; its corrected ground truth does not improve the system's score.
+- Verified every original frozen model/source/code/annotation hash is unchanged. Original results/review page remain version-one evidence.
+- Approved labels: data/annotations/heldout_ball_300_539_v2_user_reviewed.json. Updated results: outputs/vision/ball_miss_review/user_confirmed_v2/.

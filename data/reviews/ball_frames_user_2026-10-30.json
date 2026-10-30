@@ -1,0 +1,68 @@
+{
+  "source": "data/annotations/heldout_ball_300_539.json",
+  "review_source": "Direct user message in this chat",
+  "review_date": "2026-10-30",
+  "user_statement": "كل الفريمات الكرة واضحة والعلامة صحيحة ما عدا الاطار 330 بحاجة لتصحيح",
+  "scope": "Only the nine frames displayed in the ball-miss review; no confirmation implied for other samples.",
+  "changes_applied": false,
+  "reviews": [
+    {
+      "source_frame": 300,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 330,
+      "decision": "wrong",
+      "note": "Needs correction"
+    },
+    {
+      "source_frame": 360,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 370,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 380,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 390,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 460,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 470,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    },
+    {
+      "source_frame": 539,
+      "decision": "correct",
+      "note": "User confirmed visible ball and correct annotation"
+    }
+  ],
+  "proposed_correction": {
+    "source_frame": 330,
+    "old_center": [
+      1439,
+      591
+    ],
+    "proposed_center": [
+      1441,
+      511
+    ],
+    "proposer": "Assistant visual inspection",
+    "status": "awaiting_user_confirmation"
+  }
+}

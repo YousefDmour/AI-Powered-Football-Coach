@@ -1,0 +1,20 @@
+{
+  "source": "data/videos/sample.mp4",
+  "source_sha256": "e6dd06a48b72b2ec7bef24c83a7c68023046ee3adea0a0da664a7e4aa8a7b5fd",
+  "start_frame": 600,
+  "frame_count": 240,
+  "end_frame_inclusive": 839,
+  "purpose": "Prospective same-video validation reserved before tiled-search development scoring. Do not tune on this window.",
+  "sampling": "Every 20 source frames and final frame, with uncertain visibility explicitly excluded. Independent-human labels unavailable.",
+  "selected_strategy": "tiled_strict",
+  "selection_reason": "Development score 11/18 vs baseline 9/18, with no false visibility in the five reviewed negatives. Near-foot exception had no additional benefit after guarding and is not selected.",
+  "frozen_files_sha256": {
+    "vision\\ball_refinement.py": "baf4fb12f66e4ee4562e30303c308c7ddaa29df77386d2f3649203216fe23a8d",
+    "vision\\refine_ball_video.py": "5bd65986dde5b21ea9d12209d807d1ce4af8329d39e9cb84d0085fb44b0e891b",
+    "vision\\ball_tracking.py": "e43af1ca50fcf648b2e6f3d9302eba52512d9c18492d760b789d8d67ab374349",
+    "models\\yolov8n.pt": "f59b3d833e2ff32e194b5bb8e08d211dc7c5bdf144b90d2c8412c47ccfc83b36",
+    "models\\yolov8m.pt": "5d4a90cdc7a21786cc59cd19778e9eafff836df9e2da32524737c7ee6efe4fe5",
+    "data\\annotations\\ball_refinement_future_600_839.json": "be8dcccd5e7670bdfd27ee85b48e1b1fdf656c1b14cdd16bab21c1b392f66335"
+  },
+  "freeze_policy": "Selected strategy fixed after development scoring but before future tiled predictions; do not choose a different mode using future scores."
+}

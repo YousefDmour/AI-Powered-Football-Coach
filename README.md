@@ -90,6 +90,11 @@ on 9/18 visible samples (50%), so the project does not yet pass its prototype
 gate for possession estimates. See [the validation report](docs/validation_300_539.md)
 for the unchanged settings, reviewed labels, identity checks and repeat commands.
 
+The nine misses now have a [diagnostic review](docs/ball_miss_review.md).
+Open the self-contained `outputs/vision/ball_miss_review/index.html` in a browser
+to compare original crops, current annotations and pre-filter detections, and
+export review notes without changing the frozen annotations.
+
 Dependency files list direct requirements without version pins. The existing
 environment is preserved; installing on a new Python/platform combination may
 require compatible PyTorch and OpenCV versions.

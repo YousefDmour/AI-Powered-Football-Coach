@@ -1,0 +1,103 @@
+{
+  "source": "data/videos/sample.mp4",
+  "source_start_frame": 600,
+  "reviewer": "Assistant review of original images before inspecting ball predictions. Approximate centers, not human confirmed.",
+  "notes": "Prospective same-video window reserved before development scoring; samples every 20 frames plus last. Three near-foot cases are uncertain. No confidently not-visible samples: false-visibility performance is unmeasured on this window. No tuning after scoring.",
+  "frames": [
+    {
+      "source_frame": 600,
+      "visibility": "visible",
+      "center": [
+        957,
+        86
+      ]
+    },
+    {
+      "source_frame": 620,
+      "visibility": "visible",
+      "center": [
+        1074,
+        180
+      ]
+    },
+    {
+      "source_frame": 640,
+      "visibility": "uncertain",
+      "center": null
+    },
+    {
+      "source_frame": 660,
+      "visibility": "uncertain",
+      "center": null
+    },
+    {
+      "source_frame": 680,
+      "visibility": "visible",
+      "center": [
+        1241,
+        322
+      ]
+    },
+    {
+      "source_frame": 700,
+      "visibility": "visible",
+      "center": [
+        1296,
+        338
+      ]
+    },
+    {
+      "source_frame": 720,
+      "visibility": "uncertain",
+      "center": null
+    },
+    {
+      "source_frame": 740,
+      "visibility": "visible",
+      "center": [
+        1479,
+        410
+      ]
+    },
+    {
+      "source_frame": 760,
+      "visibility": "visible",
+      "center": [
+        1302,
+        376
+      ]
+    },
+    {
+      "source_frame": 780,
+      "visibility": "visible",
+      "center": [
+        1013,
+        444
+      ]
+    },
+    {
+      "source_frame": 800,
+      "visibility": "visible",
+      "center": [
+        710,
+        763
+      ]
+    },
+    {
+      "source_frame": 820,
+      "visibility": "visible",
+      "center": [
+        651,
+        767
+      ]
+    },
+    {
+      "source_frame": 839,
+      "visibility": "visible",
+      "center": [
+        609,
+        784
+      ]
+    }
+  ]
+}

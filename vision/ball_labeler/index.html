@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>تعليم الكرة — الدفعة الأولى</title><link rel="stylesheet" href="style.css"></head>
+<body><header><h1>تحديد مكان الكرة</h1><p>ارسم صندوقًا ضيقًا حول الكرة بالسحب. كبّر الصورة عند الحاجة. إذا مكانها غير واضح اختر «غير متأكد».</p></header>
+<nav><button id="prev">السابق →</button><b id="position"></b><button id="next">← التالي</button><label>اذهب للصورة <input id="jump" type="number" min="1" value="1"></label><button id="go">اذهب</button><button id="unreviewed">أول صورة غير مراجعة</button></nav>
+<section class="tools"><button id="negative">الكرة غير ظاهرة بالتأكيد</button><button id="uncertain">غير متأكد — استبعاد</button><button id="clear">مسح العلامة وإعادة المراجعة</button><label>التكبير <select id="zoom"><option value="1">×1</option><option value="2">×2</option><option value="4">×4</option></select></label></section>
+<p id="info" aria-live="polite">تحميل الصور…</p><div id="viewport"><canvas id="canvas" aria-label="اسحب لرسم صندوق حول الكرة"></canvas></div>
+<footer><b id="progress"></b><p id="storage">العلامات تُحفظ محليًا في هذا المتصفح. نزّل نسخة JSON بانتظام وأرسلها لي عند الانتهاء.</p><button id="export">تنزيل العلامات JSON</button><label class="file">استعادة علامات JSON <input id="import" type="file" accept=".json,application/json"></label><p>اختصارات: N التالي، P السابق، U غير متأكد. الصورة غير المراجعة لا تُعتبر مثالًا بدون كرة. هذه دفعة تعليم من فيديو واحد؛ نحتاج مقاطع أخرى للتحقق والاختبار.</p></footer>
+<script src="app.js"></script></body></html>

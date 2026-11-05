@@ -1,0 +1,344 @@
+{
+  "review": "Assistant visual review of detector-mined crop regions. Visible and ambiguous balls were excluded.",
+  "examples": [
+    {
+      "review_index": 1,
+      "source": "SNMOT-076_000263",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "502dcb7b830f602fe7e3057f71e1773a9493e1f1abf357f81947ee3bba83124f",
+      "region": [
+        362,
+        540,
+        1322,
+        1080
+      ],
+      "image_sha256": "a3fcb03221f30610ce4b1763b0bcee9e8efda0230a16a8fe96d0b6df74fd83a8"
+    },
+    {
+      "review_index": 2,
+      "source": "SNMOT-076_000413",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "95fc00e56ac092bfa47dedda0fef619d5132bf35361269ae3821c54a9995c594",
+      "region": [
+        414,
+        423,
+        1374,
+        963
+      ],
+      "image_sha256": "39bf541dd7ec7e27ef6b69493ba54790c5644e8e55e656a3067856bfdf4d1ca2"
+    },
+    {
+      "review_index": 3,
+      "source": "SNMOT-076_000563",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "103a70738ed9948e4e4260b191c83c95c2245970c19a9dfaca664471c0da8c13",
+      "region": [
+        0,
+        378,
+        960,
+        918
+      ],
+      "image_sha256": "2c663e57ba039358a52583e04e0be573d89846155ba89219a6ca30ef1351b6ff"
+    },
+    {
+      "review_index": 4,
+      "source": "SNMOT-077_000038",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "177537e74dfc95359a2296ba70529852069ff5d8594f23303a5eda56e70a5f2b",
+      "region": [
+        0,
+        0,
+        960,
+        540
+      ],
+      "image_sha256": "884b8935734c233818320ad2031736adbe981d6c3f81138c05237e283e3fb6a7"
+    },
+    {
+      "review_index": 5,
+      "source": "SNMOT-077_000113",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "7557767e81300d2cd94185206b576a6240ab6386c7da6e6d3917e04df0087753",
+      "region": [
+        20,
+        0,
+        980,
+        540
+      ],
+      "image_sha256": "e2873e1b3b4415729042acb84daab1e1eb4f56c9f56383d9d12e29d65b4e28d0"
+    },
+    {
+      "review_index": 6,
+      "source": "SNMOT-077_000338",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "0c642e91ade566a3fc90820113944eb6e91055f5d06ec322de08162e6b9b5905",
+      "region": [
+        167,
+        293,
+        1127,
+        833
+      ],
+      "image_sha256": "50a1316a811833d971c0904f4cfb3ccc42f952e6cea7c6a1efb75181abb75e33"
+    },
+    {
+      "review_index": 7,
+      "source": "SNMOT-077_000413",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "09125309dcffc57ff89e0d56a4634d588950ad8d23ebe5dc297a629fe972bfd0",
+      "region": [
+        0,
+        391,
+        768,
+        823
+      ],
+      "image_sha256": "9468af8dd3b395c8edd468115d124deee739b3f38aa52624d9358699bdb9ede3"
+    },
+    {
+      "review_index": 8,
+      "source": "SNMOT-077_000563",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "3075470c1e6c6ea3068d1aaff0917978c5d5e536fb0260b378db42a1b6e4fa24",
+      "region": [
+        714,
+        373,
+        1674,
+        913
+      ],
+      "image_sha256": "9e9e66b0907582aac100bcb69993a7141ccd9a5a9591ac019c6cb81b175099ea"
+    },
+    {
+      "review_index": 13,
+      "source": "SNMOT-071_000038",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "cf78e1518284415802b5c1bb723832cab4ea35e94669eb83ae6652655ddfbe5c",
+      "region": [
+        0,
+        512,
+        960,
+        1052
+      ],
+      "image_sha256": "17d854fb5f21be105ca628a26ae74fdec050906d6d671c813c8ab8a7610a5f2e"
+    },
+    {
+      "review_index": 15,
+      "source": "SNMOT-071_000638",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "f826bb84028afee986e536a158d8d731cabc86761e0312f6c908270e9c2f557a",
+      "region": [
+        775,
+        338,
+        1543,
+        770
+      ],
+      "image_sha256": "96e9bd7f9e16cb23138d7666d7fc7dd43352c41fdf8598fa88ccc1d18539fe55"
+    },
+    {
+      "review_index": 16,
+      "source": "SNMOT-067_000038",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "4fc68d2d624f550656c88683a344afe015f46ac244a63fc692de9ccec5328095",
+      "region": [
+        180,
+        209,
+        1140,
+        749
+      ],
+      "image_sha256": "1b636932caad72ed70d3d500170dcb19352010633edc05956e712b6c5c363c79"
+    },
+    {
+      "review_index": 17,
+      "source": "SNMOT-067_000113",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "945f62a6b4cb246adf0cfd6e629da66ea0fb744fff3a89567e3d144367c0140b",
+      "region": [
+        0,
+        139,
+        960,
+        679
+      ],
+      "image_sha256": "cdf54fbc28a52916fa18078045f41d8a571999a6dca5e3dca836b461eef91e87"
+    },
+    {
+      "review_index": 19,
+      "source": "SNMOT-067_000338",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "cf1820ff61ecbb0cb853c9088271d238cec434194e7a56b72e88ada546450ae1",
+      "region": [
+        159,
+        476,
+        1119,
+        1016
+      ],
+      "image_sha256": "58c30046d2295f7a67759ec0429ef5f9fb630b082ab77e534085668de418bebe"
+    },
+    {
+      "review_index": 20,
+      "source": "SNMOT-067_000488",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "f6015ac59db773beac5d8c0bacd4f09af22f0ca303494b3401f74a78a4893648",
+      "region": [
+        424,
+        540,
+        1384,
+        1080
+      ],
+      "image_sha256": "4b045244f4c92145941d5da36f57e8be10cbbc1033f3431a6ee4bf0490c198ef"
+    },
+    {
+      "review_index": 21,
+      "source": "SNMOT-067_000638",
+      "source_group": "soccernet_game_4",
+      "source_sha256": "0666ed9c6ce180bc8d146ab5e2fd83622f22fa6e92cce8eb40f52638878ed432",
+      "region": [
+        524,
+        540,
+        1484,
+        1080
+      ],
+      "image_sha256": "4c54f5a445a3d584ca9094fc2db114bb13f589470cbe13a23b5e28af76370a26"
+    },
+    {
+      "review_index": 22,
+      "source": "SNMOT-113_000038",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "b0ecd874a44efa9a5c38f1d72b8cc8ad88a437548eb78a1ba210c95ac01cb2f2",
+      "region": [
+        696,
+        520,
+        1656,
+        1060
+      ],
+      "image_sha256": "6ac3af84b534aa28a5145046a1989d9f653c6e4ddf50251805dfa86d64eec45e"
+    },
+    {
+      "review_index": 23,
+      "source": "SNMOT-113_000113",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "9ddc73475238241b6932ac19f1473d8308db47ad87492f4dda0570207865875e",
+      "region": [
+        1017,
+        420,
+        1785,
+        852
+      ],
+      "image_sha256": "505d6a4fd1a4a6f09cb18a2ca171484c9fc8c5578757e7b130b66707363364cb"
+    },
+    {
+      "review_index": 24,
+      "source": "SNMOT-113_000263",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "b1a173336e65972ef87203618f137712ecbb9dff094279ddafba1679c5f88daa",
+      "region": [
+        960,
+        0,
+        1920,
+        540
+      ],
+      "image_sha256": "fde940ff8f7816253c67479f5bde86af4dd12cc19fde0b74a29e4ee72de8cc7b"
+    },
+    {
+      "review_index": 28,
+      "source": "SNMOT-114_000713",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "d423637cd90ff5bbedc4ed4d349dd31f7f3b95e642396668212940aa087fc897",
+      "region": [
+        838,
+        648,
+        1606,
+        1080
+      ],
+      "image_sha256": "cd5e3823a6dcf95a6934eb1327b4b3e08fdffac5ddb1d2b48d9a5334b859d4c7"
+    },
+    {
+      "review_index": 30,
+      "source": "SNMOT-109_000713",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "59a672593b4c335f9e1510a1edbdf24734215322d5c2c2f9e18d4bdf243c04fe",
+      "region": [
+        0,
+        606,
+        768,
+        1038
+      ],
+      "image_sha256": "f4b513defe210ce633bf95fb481e93cac1fe78d6d78d0c6f0353df50d143a254"
+    },
+    {
+      "review_index": 31,
+      "source": "SNMOT-103_000338",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "0da46d4f395ccfc1744df45529533bb3dc7c0d2275048abdb6c82d474491db64",
+      "region": [
+        434,
+        456,
+        1394,
+        996
+      ],
+      "image_sha256": "8d867e4bfe58cb657b1ce5428eed658b167ea2b03723c98481f5ec9c03ccde00"
+    },
+    {
+      "review_index": 32,
+      "source": "SNMOT-103_000413",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "752f0c6213b6268ed7d8761900ac4bfa6872ad486cdaad66954b797eb6563939",
+      "region": [
+        24,
+        360,
+        984,
+        900
+      ],
+      "image_sha256": "968d085c7b801fbc055450cb16ff91aa97f8f2747b6091d31fc33b27058ef655"
+    },
+    {
+      "review_index": 33,
+      "source": "SNMOT-103_000563",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "5f82150d9f8d5ab72b52c91669f6abea042ca11511c780d39e2c4dcdad4ba385",
+      "region": [
+        922,
+        524,
+        1690,
+        956
+      ],
+      "image_sha256": "316f824152dd8c676b0bf686069de4793cf03b57dde4335387f6fb23f12f38c6"
+    },
+    {
+      "review_index": 34,
+      "source": "SNMOT-103_000638",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "5d8e8edbf0bfbb8a37c0a33deff364c8b2269e736e4972053ccaea0a1f475ed1",
+      "region": [
+        960,
+        406,
+        1920,
+        946
+      ],
+      "image_sha256": "01278362549ac7cc9f14f0e30b0f671fa913c779c321fae40f8d3bcf53670535"
+    },
+    {
+      "review_index": 35,
+      "source": "SNMOT-103_000713",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "0f076e5c7035233bc4c59cf50a457c9fe73f49d461ae1b73eb2f2a4d2fb2d8c6",
+      "region": [
+        960,
+        453,
+        1920,
+        993
+      ],
+      "image_sha256": "adc1fc5b685add1ab7cce4e565eb516bcc30a8df123da32b5f09eaed6b825ebd"
+    },
+    {
+      "review_index": 36,
+      "source": "SNMOT-110_000488",
+      "source_group": "soccernet_game_6",
+      "source_sha256": "dd0fb2a5d166c626202ca8a3097c86d78cc5b8acf1f68f4ea3016c4499e2bb86",
+      "region": [
+        861,
+        540,
+        1821,
+        1080
+      ],
+      "image_sha256": "1f70edd53cd5d72c408062c7d5ad0dcb54bcc2b6fe4e6b200e68cd7a8dc17082"
+    }
+  ],
+  "source_manifest_sha256": "be7794fd668e87efd68ddb11fd1db0026c53f02a45bb38fd0bba888b80fe76e9"
+}

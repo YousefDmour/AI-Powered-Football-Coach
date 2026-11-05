@@ -93,3 +93,27 @@ Validated the recommendation system and report with the bundled match data; all 
 - Frame 330 remains a miss because no output position was emitted; its corrected ground truth does not improve the system's score.
 - Verified every original frozen model/source/code/annotation hash is unchanged. Original results/review page remain version-one evidence.
 - Approved labels: data/annotations/heldout_ball_300_539_v2_user_reviewed.json. Updated results: outputs/vision/ball_miss_review/user_confirmed_v2/.
+
+## 2026-11-05 - Completed tiled-ball evaluation
+
+- Resumed saved experiments after the project folder was renamed to AI-Powered Football Coach.
+- Selected overlapping-tile search using YOLOv8n plus cached baseline YOLOv8m observations: 11/18 correct development samples versus 9/18. Guarded near-foot exception added no benefit and remains unselected.
+- Completed prospective scoring with strategy fixed before predictions: 4/10 versus 2/10 on frames 600-839; 3 uncertain labels excluded. All prospective labels are assistant-reviewed and there are no reviewed negative samples, so false visibility is unmeasured.
+- Serial ball-stage processing measured 0.72 FPS excluding people. Accuracy and speed remain insufficient for live deployment; original baseline modules are unchanged.
+- All frozen original and prospective hashes matched; 240 output frames decoded; source indices and empty non-observed coordinates verified; 38 tests passed.
+- Method and next data milestone: docs/ball_refinement.md. Results: outputs/vision/ball_refinement/future/comparison.json and verification.json.
+
+## 2026-11-05 - First ball training-data review batch
+
+- Prepared the first 200-image local labeling batch from match.mp4 with source hash/frame provenance, half-second candidate screening and temporal distribution. The entire sample.mp4 evaluation source is excluded.
+- Added an Arabic local review page with box drawing, zoom, explicit uncertain/negative states, local browser persistence and JSON backup/restore. All images start unreviewed.
+- Added a validated importer producing YOLO staging images/labels only for human-reviewed visible and confidently negative examples. No train/validation/test split is invented for this single source; additional clips are needed.
+- No SoccerNet data downloaded and no model trained. Human review is the next required action.
+- Verification: 47 tests passed; JavaScript syntax and simulated DOM interactions checked; all 200 images verified by sequential decoding. Visual inspection linked the local videos to one Barcelona/Bayern source family; independent evaluation needs a new match if this batch is used for training. Instructions: docs/ball_dataset.md.
+
+## Ball detector training and video evaluation
+
+- Reviewed the 200-image local batch and exported 197 YOLO examples. Three ambiguous frames were kept out of the export.
+- Trained a local pilot, then trained YOLOv8n on 427 images from three matches and selected weights on a separate match. The latter found 41/76 centers on the reserved test match.
+- Compared both detectors with shared causal tracking. Tested grass-filter relaxations and retrained with 26 reviewed distractor crops. Kept the distractor checkpoint experimental after mixed tracking results.
+- Published the experiment runners, source-window review metadata and measured results in [the experiment guide](ball_experiments.md).

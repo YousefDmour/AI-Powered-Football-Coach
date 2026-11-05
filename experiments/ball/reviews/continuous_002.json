@@ -1,0 +1,26 @@
+{
+  "source_manifest_sha256": "459e1176f29940d2afc2380c385a75a651a138b4a7590f92ed882a160232492f",
+  "method": "Contact sheets, native-resolution spot checks and touchline crop trajectory, before inference. One reviewed out-of-view episode.",
+  "clips": {
+    "SNMOT-150": {
+      "not_visible_frames": [
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470
+      ],
+      "reason": "The outgoing ball was still visible on the walkway earlier in the unlabeled span, so those frames remain uncertain. Right-side crops show it moving off the right image edge before frame 460. Keep the central 460\u2013470 interval and exclude the reappearance boundary."
+    },
+    "SNMOT-200": {
+      "not_visible_frames": [],
+      "reason": "The match ball may be partly visible near the goalkeeper, and a separate ball is behind the advertising board. Keep the unlabeled interval uncertain."
+    }
+  }
+}

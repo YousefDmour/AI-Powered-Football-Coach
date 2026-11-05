@@ -172,3 +172,21 @@ events. Delivery follows period-local timestamps; the next period begins after
 the previous period's last recorded event. Halftime waiting is skipped, while
 the displayed clock uses the provider's match minute and second. Input must be
 chronological; repeated event IDs are ignored by analysis.
+
+## Small-ball refinement experiment
+
+Overlapping tiles improved sampled development recall from 9/18 to 11/18, and
+prospective same-video recall from 2/10 to 4/10. This remains experimental and
+below the validation gate; measured serial ball processing is 0.72 FPS excluding
+people. See [method, provenance and limitations](docs/ball_refinement.md).
+
+## Ball training data review
+
+The first local 200-image batch has an Arabic box-labeling page with zoom,
+local progress, JSON backup and a validated YOLO staging importer. See
+[review instructions and commands](docs/ball_dataset.md).
+
+The [ball experiment guide](docs/ball_experiments.md) records the single-match
+and multi-match training runs, the tests on consecutive frames, and the
+filter and distractor comparisons. Experiment commands live in
+`experiments/ball/`; source media, weights and generated results are local.
